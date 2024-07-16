@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment } from './features/counter/counterSlice';
 
 function App() {
+  const count = useSelector(state => state.counter.value)
+  const dispatch = useDispatch()
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +22,10 @@ function App() {
         >
           Learn React
         </a>
+          <button onClick={() => dispatch(increment())}>增加</button>
+          <div>{ count }</div>
       </header>
+      
     </div>
   );
 }
