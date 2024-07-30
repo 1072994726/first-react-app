@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment } from './features/counter/counterSlice';
+import { decrement, increment } from './features/counter/counterSlice';
 
 function App() {
   const count = useSelector(state => state.counter.value)
@@ -23,6 +23,7 @@ function App() {
           Learn React
         </a>
           <button onClick={() => dispatch(increment())}>增加</button>
+          <button onClick={() => dispatch(decrement())}>减少</button>
           <div>{ count }</div>
       </header>
       
